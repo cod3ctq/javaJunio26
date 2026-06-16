@@ -53,11 +53,11 @@ public class Main {
 //                System.out.println(datos[1]);//siempre devuelve el dato en la 7ma posicion del array (s.o)
 
                 //celulares gama alta o media alta
-                if (datos[2].equals("Alta") || datos[2].equals("Media-Alta")) {
-                    System.out.println(datos[0] + " " + datos[1] + " $" + datos[3]);
-                    fw.write(datos[0] + " " + datos[1] + "$" +datos[3]  +"\n");
-
-                }
+//                if (datos[2].equals("Alta") || datos[2].equals("Media-Alta")) {
+//                    System.out.println(datos[0] + " " + datos[1] + " $" + datos[3]);
+//                    fw.write(datos[0] + " " + datos[1] + "$" +datos[3]  +"\n");
+//
+//                }
                 //filtro por precio>= 1000 y procesador Snapdragon
 //                if (Integer.parseInt(datos[3])>=1000 && datos[4].contains("Snapdragon")){
 //                    System.out.println(datos[2]+" "+datos[5]+" "+ datos[7].toUpperCase());

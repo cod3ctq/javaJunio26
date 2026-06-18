@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Java_jdoc.iml" filepath="$PROJECT_DIR$/Java_jdoc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clase-abstracta-jdoc.iml" filepath="$PROJECT_DIR$/clase-abstracta-jdoc.iml" />
     </modules>
   </component>
 </project>

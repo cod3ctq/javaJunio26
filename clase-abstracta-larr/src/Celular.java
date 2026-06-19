@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
-public class Celular {
+//Clase abstracta : Clase cualquiera que contiene al menos 1 metodo abstracto
+
+//clase cualquiera: una clase que tiene const, atrib, get y set, pero contiene al menos un metodo abst.
+
+public abstract class Celular {
 
     //QUE
     String marca;
@@ -98,18 +102,22 @@ public class Celular {
 
     //Llamar, mandarMensajes, crearContacto
 
+    //METODO ABSTRACTO : Metodo que no tiene logica definida (Sin implementacion).
+    public abstract void llamar(String numero);
+
+    public abstract void nuevoMetodo();
+
+    public abstract void otroMetodo();
+
+//    public void llamar(String nombre, String compañia){
+//
+//    }
+//    public void llamar(String nombre, int saldo){
+//
+//    }
+
+
     //Metodos de la forma 1.- NATIVOS
-    public void llamar(String numero){
-
-        System.out.println("Llamando al "+numero+" ...");
-    }
-    public void llamar(String nombre, String compañia){
-
-    }
-    public void llamar(String nombre, int saldo){
-
-    }
-
     public void mandarMensaje(String numero, String mensaje){
         System.out.println("Enviando: \n"+mensaje+" al numero: "+numero);
     }

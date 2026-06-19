@@ -2,8 +2,17 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Celular c1 = new Celular("Nokia", "1100", 1000.00,
-                "Baja", "600", "Plastico");
+
+        //Objetos de una clase comun y corriente.
+        //Despues de convertir la clase en abstracta, ya no es posible instanciar un objeto de esta clase.
+
+        //PARA QUE SIRVE EMTONCES UNA CLASE ABTRACTA SI NO PUEDO HACER OBJETOS DE ELLA :
+        //Sirve para heredar a otras.
+
+//        Celular c1 = new Celular("Nokia", "1100", 1000.00,
+//                "Baja", "600", "Plastico");
+
+        //No se pueden instanciar objetos porque es un modelo incompleto
 
         //Invocar los metodos propios de esta clase
 
@@ -13,6 +22,8 @@ public class Main {
 
 
         //--------- COMPOSICION
+
+
 
         //Paraconstruir objetos compuestos, primero debo construir aquellos
         //objetos de los que se compone el objeto principal.
@@ -49,9 +60,16 @@ public class Main {
                 8000.00,"ALTA","1200","POLICARBONATO",false, "Symbian S60",
                 false,8,conect, display2,camaras);
 
-        System.out.println(c1);
-        System.out.println(sm);
-        System.out.println(sm2);
+//        System.out.println(c1);
+        System.out.println(sm);//23Ulta
+        System.out.println(sm2);//N95 8GB
+
+
+//        c1.llamar("3541335");//Metodo original de la clase padre
+        sm.llamar("3451312");//Metodo herdado y sobreescrito desde la clase hija.
+
+
+
 
 
 

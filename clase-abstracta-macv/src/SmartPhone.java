@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class SmartPhone extends Celulare {
+public class SmartPhone extends Celulare implements IFuncionesInteligentes {
 
 
     boolean spen;
@@ -101,4 +102,97 @@ public class SmartPhone extends Celulare {
                 ", materiales='" + materiales + '\'' +
                 '}';
     }
+
+    //SOBREESCRITURA: REDEFINIR LA LOGICA (LOS PASOS) DE UN METODO
+    //DE TAL FORMA QUE LOGRAS EL MISMO RESULTADO PERO CON PROCEDIMIENTO DIFERENTE
+
+
+
+//Metodo de la forma 2: heredado y sobreescrito
+@Override//<--Indica que este metodo en esta clase esta siendo sobreescrito
+    public void llamar(String numero){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Seleccione como quieres hacer la llamada");
+        System.out.println("1.- Red Celular");
+        System.out.println("2.- Whatsapp");
+        System.out.println("3.- Telegram");
+        System.out.println("4.- Messenger");
+        int select = sc.nextInt();
+
+        switch (select){
+
+            case 1:
+                System.out.println("Llamando al: "+numero+ " por Red Celular");
+                break;
+            case 2:
+                System.out.println("Llamando al: "+numero+ " por Whatsapp");
+                break;
+            case 3:
+                System.out.println("Llamando al: "+numero+" por Telegram");
+                break;
+            case 4:
+                System.out.println("Llamando al: "+numero+ " por Messenger");
+                break;
+
+
+            default:
+                System.out.println("Opcion invalida");
+        }
+    }
+
+    @Override
+    public void mandarMensaje(String numero, String mensaje) {
+
+    }
+
+    @Override
+    public void crearContacto() {
+
+    }
+
+
+
+
+//Metodos de la forma 3: Traidos de una interface
+    @Override
+    public void tomarfoto() {
+
+    }
+
+    @Override
+    public void navegarPorInternet() {
+
+    }
+
+    @Override
+    public void reproducirMusica() {
+
+    }
+
+    @Override
+    public void reproducirVideos() {
+
+    }
+
+    @Override
+    public void abrirAplicaciones() {
+
+    }
+
+    @Override
+    public void leerDocumentos() {
+
+    }
+
+    @Override
+    public void leerCorreos() {
+
+    }
+    //Si la clase abstracta tienen mas de 1 metodo abstracto
+    //las clases hijas estan obligadas a implementar TODOS
+    //los metodos abstractos
+
+
+
 }

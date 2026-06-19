@@ -1,7 +1,9 @@
 import javax.xml.transform.sax.SAXTransformerFactory;
 import java.util.Scanner;
 
-public class Celulare {
+//Clase abstracta: Clase cualquiera ue contiene al menos 1 metodo abstracto
+//es toda aquella que contiene etructura y para volverse abstracta debe tener por lo meno una entiad abstracta
+public abstract class Celulare {
 
     //  QUE: atributos
     String marca;
@@ -92,31 +94,25 @@ public class Celulare {
     //Llamar, mandarMensajes, guardarContactos
 
 
-    //Metodos de la forma 1: Nativos
-    public void llamar(String numero){
-        System.out.println("Llamand al"+numero+". . .");
-    }
+   //Metodo abstracto: metodo que no tiene logica definida (sin especificación)
+    public abstract void llamar(String numero);
 
-    //sobrecarga argumentos
-    public void llamar(String nombre, String compañia){
 
-    }
-    //sobrecarga argumentos
-    public void llamar(String nombre, int saldo){
 
-    }
 
-    public void mandarMensaje(String numero, String mensaje){
-        System.out.println("Enviando mensaje: \n"+mensaje+"al mensaje: "+numero);
-    }
-    public void crearContacto(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del contacto");
-        String nombreContacto=sc.nextLine();
-        System.out.println("Ingrese el nuemro");
-        String numeroContacto = sc.nextLine();
-        System.out.println("Contacto guardado: "+nombreContacto + "["+numeroContacto+"]");
-    }
+//    //sobrecarga argumentos
+//    public void llamar(String nombre, String compañia){
+//
+//    }
+//    //sobrecarga argumentos
+//    public void llamar(String nombre, int saldo){
+//
+//    }
+
+
+//Metodos de la forma 1: Nativos
+    public abstract void mandarMensaje(String numero, String mensaje);
+    public abstract void crearContacto();
 
     //Sobreescritura: hacer lo mismo pero distinta forma
 

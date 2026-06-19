@@ -3,7 +3,14 @@
 public class Main {
     public static void main(String[] args) {
 
-        Celulare c1 = new Celulare("Nokia","1100",1000.00,"baja","600","plastico");
+
+        //despues de convertir la clase en abstracta, ya no es posible instanciar un objeto de esta clase
+        //PARA QUE SIRVE ENTONCES UNA CLASE ABSTRACTA SI NO PUEDO HACER OBJETOS DE ELLA?
+        //sirve para heredar a otras!!!
+
+
+
+//        Celulare c1 = new Celulare("Nokia","1100",1000.00,"baja","600","plastico");
         //Invocar los metodos propios de esta clase
 //        c1.llamar("4759875624");
 //        c1.mandarMensaje("6558725203","holi");
@@ -43,9 +50,18 @@ public class Main {
                 conect,display2,camaras);
 
 
-        System.out.println(c1);
+//        System.out.println(c1);
         System.out.println(sm);//S25 Ultra
         System.out.println(sm2);//Nokia N95 8G
+
+
+        sm.llamar("55228752254");
+        sm2.llamar("785251552242");
+
+
+//        c1.llamar("78504560","hola");//Metodo original de la clase padre
+//        sm.llamar("45068722","hola2");//Metodo heredado y sobreescrito de la clase hija
+
 
     }
 }

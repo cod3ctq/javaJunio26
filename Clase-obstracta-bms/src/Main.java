@@ -1,7 +1,17 @@
+/*
+No se puede instanciar un objeto de una clase abstracta por que esta incompleto
+
+ */
+
 public class Main {
     public static void main(String[] args) {
-        //Objeto de una clase comun y corriente
-        Celular c1 = new Celular("Sony", "XZ", "ALTA",300.00,"300");
+        //Despues de comvertir la clase en abstracta ya no es posible instanciar un objeto de esta clase
+
+        //Para que sirve entonces una clase ABSTRACTA ni instanciar objetos de ella
+        //Sirve para heredar a otras
+
+//        //Objeto de una clase comun y corriente
+//        Celular c1 = new Celular("Sony", "XZ", "ALTA",300.00,"300");
 
         //OInvocar los metoos propios de esta clase
 //
@@ -38,10 +48,12 @@ public class Main {
 
         Smartphone sm2 = new Smartphone("nokia","hh","alta",2000,"5000",true,true,512,"android",display2,conect,camaras);
 
-        System.out.println(c1);
+//        System.out.println(c1);
         System.out.println(sm);
         System.out.println(sm2);
 
+//        c1.llamar("3456789"); //metodo original de la clase padre\
+        sm.llamar("345678"); //Metodo heredado y sobreescrito desde la clase hija
 
     }
 }

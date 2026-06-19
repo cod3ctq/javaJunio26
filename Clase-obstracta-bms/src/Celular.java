@@ -1,7 +1,13 @@
 import java.util.Scanner;
+/*
+ontologia OO
+Clase abstracta: Clase cualquiera que contine al menos 1 metodo abstracto
+clase cualquiera tiene todo atributos, metos, stc.
+una clase abstracta tiene por lo menos 1 metodo abstracto
+ */
 
 //QUE:
-public class Celular {
+public abstract class Celular {
     String marca;
     String modelo;
     String gama;
@@ -86,20 +92,34 @@ public class Celular {
     //llamar, mandarMensaje, guardarContactos
      */
 
-    //Metodos de la forma 1: Nativos
-    public void llamar(String numero){
-        System.out.println("Llamando al "+numero+"... ");
-    }
+    /*
+    Metodos nativos: Creados aca
+     */
 
-    //Sobrecarga de argumentos
-    public void llamar(int numero,String nombre){
-        System.out.println("Llamando al "+numero+"... ");
-    }
+    //Metodos abstracto: Metodo que no tienen logica definicda (sin implementar)
+    public abstract void llamar(String numero);
 
-    //Sobrecarga de argumentos
-    public void llamar(String numero,String nombre){
-        System.out.println("Llamando al "+numero+"... ");
-    }
+    //Metodos abstracto: Metodo que no tienen logica definicda (sin implementar)
+    public abstract void nuevoMetodo(String numero);
+
+    //Metodos abstracto: Metodo que no tienen logica definicda (sin implementar)
+    public abstract void OtroMetodo(String numero);
+
+//    //Metodos de la forma 1: Nativos
+//    public void llamar(String numero){
+//        System.out.println("Llamando al "+numero+"... ");
+//    }
+
+
+//    //Sobrecarga de argumentos
+//    public void llamar(int numero,String nombre){
+//        System.out.println("Llamando al "+numero+"... ");
+//    }
+//
+//    //Sobrecarga de argumentos
+//    public void llamar(String numero,String nombre){
+//        System.out.println("Llamando al "+numero+"... ");
+//    }
 
 
     public void mandarMensaje(String numero, String mensaje){

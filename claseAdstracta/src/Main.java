@@ -1,3 +1,5 @@
+import jdk.jfr.Name;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -15,6 +17,8 @@ public class Main {
 
         Camara c4 = new Camara("490p", 10, "simpleCamera", 100);
         Camara c5 = new Camara("480p", 2, "simple", 120);
+
+
         Camara[] camarasViejas = new Camara[2];
         camarasViejas[0] = c4;
         camarasViejas[1] = c5;
@@ -26,8 +30,11 @@ public class Main {
         Smartphone t2=new Smartphone("samsung","a95",80000.2,"Alta", "aluminio",true,
                               "Symbian", false, 10  , camarasViejas, p1);
 
-        System.out.println(t1.toString());
-        System.out.println(t2.toString());
-        
+        t1.llamar("2221409932");
+
+//       System.out.println(t1.toString());
+//       System.out.println(t2.toString());
+
+
     }
 }

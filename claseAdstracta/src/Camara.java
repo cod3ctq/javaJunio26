@@ -43,6 +43,7 @@ public class Camara {
         this.valorISO = valorISO;
     }
 
+    // @Override esta siendo sobre escrito
     @Override
     public String toString() {
         return "Camara{" +

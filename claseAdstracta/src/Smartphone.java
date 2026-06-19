@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Smartphone  extends Telefono {
+public class Smartphone  extends Telefono implements IFuncionesInteligentes {
 
     boolean spem;
     String sustemaOperativo;
@@ -31,6 +32,35 @@ public class Smartphone  extends Telefono {
         this.camaras = camaras;
         this.pamtalla = pantalla;
     }
+
+
+    //metodo de la forma 2 metodo adstracto
+    //metodo sin implementacion, solo con la firma del metodo
+
+    public void llamar(String numero){
+        System.out.println("Por donde quieres marcar?");
+        Scanner sc = new Scanner(System.in);
+        int tempOpcion = Integer.parseInt(sc.nextLine());
+        switch (tempOpcion){
+            case 1:
+                System.out.println("Llamando por el whatsapp a" +
+                        numero);
+                break;
+            case 2:
+                System.out.println("Llamando por el instagram a" +
+                    numero);
+                break;
+            case 3:
+                System.out.println("Llamando por el telefono a" +
+                        numero);
+                break;
+            default:
+                System.out.println("Opcion no valida");
+        }
+
+
+    }
+
 
     public boolean isSpem() {
         return spem;
@@ -90,5 +120,42 @@ public class Smartphone  extends Telefono {
                 ", sustemaOperativo='" + sustemaOperativo + '\'' +
                 ", spem=" + spem +
                 '}';
+    }
+
+
+    //traido de una interface una de las 3 formas interfaces
+    @Override
+    public void tomarFoto() {
+
+    }
+
+    @Override
+    public void navegarPorInternet() {
+
+    }
+
+    @Override
+    public void reproducirMusica() {
+
+    }
+
+    @Override
+    public void reproducirVideo() {
+
+    }
+
+    @Override
+    public void abririAplicacion() {
+
+    }
+
+    @Override
+    public void leerCorreo() {
+
+    }
+
+    @Override
+    public void leerDoucuementos() {
+
     }
 }

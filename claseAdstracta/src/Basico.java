@@ -3,6 +3,12 @@ import java.util.Arrays;
 public class Basico extends Telefono {
     Camara[] camaras;
 
+    //Aqui, ya no necesito repetir lo heredado
+//Si no agrego algun atributo extra, entonces
+//tampoco necesito generar un nuevo constructor
+//dado que la forma del objeto (cantidad, orden y tipo de argumentos)
+//no ha cambiado
+
     public Basico(String marca, String modelo, Double precio, String gama, String materia, Camara[] camaras) {
         super();
         this.marca = marca;
@@ -19,6 +25,12 @@ public class Basico extends Telefono {
 
     public void setCamaras(Camara[] camaras) {
         this.camaras = camaras;
+    }
+
+
+    @Override
+    public void llamar(String numero) {
+
     }
 
     @Override

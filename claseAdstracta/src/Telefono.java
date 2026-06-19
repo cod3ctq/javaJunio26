@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Telefono {
+public abstract class Telefono {
 
     String marca;
     String modelo;
@@ -41,9 +41,11 @@ public class Telefono {
     //polimorfismo: sobre carga de argumentos: definir variso metodos con el mismo nombre pero distintos cantidad orden y tipo de argumentos.
     //Sobre escritura: Define varios metodos en clases distintas con el mismo nombre y resuktado pero diferente logica
 
-    public void llamar(String numero){
-        System.out.println("marcando a "+ numero);
-    }
+    //metodo de la forma 2 metodo adstracto
+    //metodo sin implementacion, solo con la firma del metodo
+
+    //metodo que no tiene implementacion, solo con la firma del metodo (metodo abstracto)
+    public abstract void llamar(String numero);
 
     public void llamar(String numero, String comapania){
         System.out.println("marcando a "+ numero+"  de la compañia: "+comapania);
@@ -54,15 +56,8 @@ public class Telefono {
     }
 
 
-    //clases por default
-    public Telefono() {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.precio = precio;
-        this.gama = gama;
-        this.materia = materia;
-    }
 
+    //clases por default
     public String getMarca() {
         return marca;
     }

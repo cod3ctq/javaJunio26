@@ -4,10 +4,16 @@ public class Main {
     public static void main(String[] args) {
 
         //Objeto de una clase comun y corriente
-        Celular c1 = new Celular("Nokia",
-                "1100",1000.00,
-                "Baja","600","Plastico");
+        //Despues de convertir la clase en abstracta, ya no es posible instanciar un
+        //objeto de esta clase
 
+        //PARA QUE SIRVE ENTONCES UNA CLASE ABSTRACTA SI NO PUEOD HACER OBJETOS DE ELLA?
+        //Sirve para heredar a otras!!
+
+//        Celular c1 = new Celular("Nokia",
+//                "1100",1000.00,
+//                "Baja","600","Plastico");
+//
         //Invocar los metodos propios de esta clase
         //c1.llamar("2534253342");
         //c1.llamar("pepe","at&t");
@@ -51,6 +57,18 @@ public class Main {
         System.out.println(c1);
         System.out.println(sm); //23Ultra
         System.out.println(sm2);//N95 8GB
+
+        //c1.llamar("76876576"); //Metodo original de la clase padre
+        sm.llamar("34523745"); //Metodo heredado y sobreescrito desde la clase hija
+
+
+
+
+
+
+
+
+
 
 
 

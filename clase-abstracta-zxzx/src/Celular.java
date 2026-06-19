@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-public class Celular {
+//Clase abstracta: Clase cualquiera que contiene al menos 1 metodo abstracto
+public abstract class Celular {
 
     //QUE: Atributos
     String marca;
@@ -91,20 +92,21 @@ public class Celular {
 
     //llamar, mandarMensajes, guardarContactos
 
+    //Metodo abstracto : Metodo que no tiene logica definida (sin implementacion)
+    public abstract void llamar(String numero);
+    public abstract void nuevoMetodo();
+    public abstract void otroMetodo();
+
+//    //sobrecarga de argumentos
+//    public void llamar(String nombre, String compañia){
+//
+//    }
+//    //sobrecarga de argumentos
+//    public void llamar(String nombre, int saldo){
+//
+//    }
+
     //Metodos de la forma 1: Nativos
-    public void llamar(String numero){
-        System.out.println("Llamando al "+numero+" ...");
-
-    }
-    //sobrecarga de argumentos
-    public void llamar(String nombre, String compañia){
-
-    }
-    //sobrecarga de argumentos
-    public void llamar(String nombre, int saldo){
-
-    }
-
     public void mandarMensaje(String numero, String mensaje){
         System.out.println("Enviando : \n"+mensaje+ "al numero: "+numero);
     }

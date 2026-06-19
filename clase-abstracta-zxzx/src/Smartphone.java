@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Smartphone extends Celular{
+public class Smartphone extends Celular implements IFuncionesInteligentes{
 
     boolean spen;
     String sistemaOperativo;
@@ -11,7 +12,6 @@ public class Smartphone extends Celular{
     String[] conectividad;
     Pantalla pantalla;
     Camara[] camara;
-
 
 
     //COMPOSICION: Define una relacion 'TIENE UN'
@@ -99,5 +99,85 @@ public class Smartphone extends Celular{
                 ", mAh='" + mAh + '\'' +
                 ", materiales='" + materiales + '\'' +
                 '}';
+    }
+
+    //Metodo de la forma 2: heredado y sobreescrito
+
+    //SOBREESCRITURA: REDEFINIR LA LOGICA (LOS PASOS) DE UN METODO
+    //DE TAL FORMA QUE LOGRAS EL MISMO RESULTADO PERO CON PROCEDIMIENTO DIFERENTE
+    @Override //<-- indica que este metodo en esta clase esta siendo sobreescrito
+    public void llamar(String numero){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Selecciona como quieres hacer la llamada");
+        System.out.println("1 - Red Celular");
+        System.out.println("2 - Whatsapp");
+        System.out.println("3 - Telegram");
+        System.out.println("4 - Messenger");
+        int selec = sc.nextInt();
+        switch(selec){
+            case 1:
+                System.out.println("Llamando al: "+numero + " por Red Celular");
+                break;
+            case 2:
+                System.out.println("Llamando al: "+numero + " por Whatsapp");
+                break;
+            case 3:
+                System.out.println("Llamando al: "+numero + " por Telegram");
+                break;
+            case 4:
+                System.out.println("Llamando al: "+numero + " por Messenger");
+                break;
+            default:
+                System.out.println("Opcion invalida");
+        }
+    }
+
+    //Si la clase abstracta tiene mas de 1 metodo abstracto
+    //las clases hijas estan obligadas a implementar TODOS
+    //los metodos abstractos
+    @Override
+    public void nuevoMetodo() {
+
+    }
+
+    @Override
+    public void otroMetodo() {
+
+    }
+
+    //Metodos de la forma 3: Traidos de una interface
+    @Override
+    public void tomarFotos() {
+
+    }
+
+    @Override
+    public void navegarPorInternet() {
+
+    }
+
+    @Override
+    public void reproducirMusica() {
+
+    }
+
+    @Override
+    public void reproducirVideo() {
+
+    }
+
+    @Override
+    public void abrirAplicacion() {
+
+    }
+
+    @Override
+    public void leerCorreos() {
+
+    }
+
+    @Override
+    public void leerDocumentos() {
+
     }
 }

@@ -3,6 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
+.idea
+interfaces_bms.iml
 
 ### Eclipse ###
 .apt_generated

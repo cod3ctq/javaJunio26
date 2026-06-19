@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Sartphone  extends Celular{
+public class Sartphone  extends Celular implements IFuncionesInteligentes{
 
     boolean spen;
     String[] conectividad;
@@ -98,8 +99,81 @@ public class Sartphone  extends Celular{
                 ", conectividad=" + Arrays.toString(conectividad) +
                 ", spen=" + spen +
                 '}';
+
+
+    }
+    //Metodo de la forma 2: heredado y sobreescrito
+
+    //SOBREESCRITURA: REDEFINIR LA LOGICA( LOS PASOS DE UN METODO
+    //DE TAL FORMA QUE LOGRAS EL MISMO RESULTADO PERO CON PROCEDIMIENTO DIFERENTE
+    @Override//--- iNDICA QUE ESTE METODO EN ESAT CLASE ESTA CIENDO SOBREESCRITO
+    public void llamar(String numero){//sobrecarga
+        //Sobreeswcritura
+        Scanner sc = new Scanner(System.in);
+        System.out.println("selecciona como quieres hacer la llamada");
+        System.out.println("1- Red Celular");
+        System.out.println("2- Whatsaap");
+        System.out.println("3- telegram");
+        System.out.println("4- Messenger");
+        int selec = sc.nextInt();
+
+
+        switch (selec){
+            case 1:
+                System.out.println("llamando al: "+numero+ "por Red Celular");
+                break;
+            case 2:
+                System.out.println("llamando al: "+numero+ "por Whatssapp");
+                break;
+            case 3:
+                System.out.println("llamando al: "+numero+ "pornTelegram");
+                break;
+            case 4:
+                System.out.println("llamando al: "+numero+ "por Messenger");
+                break;
+
+            default:
+                System.out.println("Opcion invalida");
+        }
     }
 
 
+    // Metodos de la forma 3: traidos de una interface
+
+
+    @Override
+    public void tomarFotos() {
+
+    }
+
+    @Override
+    public void navegarPorInternet() {
+
+    }
+
+    @Override
+    public void reproducirMusica() {
+
+    }
+
+    @Override
+    public void reprodicirVideos() {
+
+    }
+
+    @Override
+    public void abrirAplicacion() {
+
+    }
+
+    @Override
+    public void abrirCorreps() {
+
+    }
+
+    @Override
+    public void leerDocumento() {
+
+    }
 }
 

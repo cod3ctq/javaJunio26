@@ -1,12 +1,19 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    //Objeto comun y corriente
+    //Despues de convertir la clase abstracta, ya no es posible instanciar in
+    //objeto de esat clase
+
+    //PARA QUE SIRVE ENTONCES UNA CLASE ABSTRACTA SINO PUEDO HACER OBJETOS EN ELLA?
+    //¡¡SIRVE PARA HEREDAR A PTRAS!!
     public static void main(String[] args) {
-        Celular c1 = new Celular("NOKIA","1100", 1000, "Baja", "600", "plastico");
+ //       Celular c1 = new Celular("NOKIA",
+        //       "1100", 1000,
+        //       "Baja", "600", "plastico");
 
         //Invocar los metodos propios de esat calse
-
-//        c1.llamar("64684351354");
+        //         c1.llamar("64684351354");
 //        c1.llamar("pepe","at&t");
 //        c1.llamar("31541354",354331535);
 //        c1.mandarMensaje("1654534133", "hola");
@@ -43,9 +50,17 @@ public class Main {
                 false,8,display2,camaras);
 
 
-        System.out.println(c1);
+        //System.out.println(c1);
         System.out.println(sm); //S23 Ultra
         System.out.println(sm2); // N95 8GB
+        //c1.llamar("213546543");//Metodo original de la calse padre
+        sm.llamar("3513513511");// Metodo heredado y sobreescruto desde la clase hija
+
+//        sm.mandarMensaje("235443544","texto");
+//        sm2.mandarMensaje("3544354354","Texto2");
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Celular {
+public abstract class Celular {
 // QUE
     String marca;
     String modelo;
@@ -8,6 +8,8 @@ public class Celular {
     String gama;
     String mAh; // aolo poe ser un dato demostrativo, no hare matematicas con el
     String materiales;
+
+    //Clase abstracta
 
     public Celular(String marca, String modelo, double precio, String gama, String mAh, String materiales) {
         this.marca = marca;
@@ -88,19 +90,20 @@ public class Celular {
      */
 
     // 1.-METODOS NATIVOS: llamar, mandarMesajes, guardaContactos,
+    //Metodo abstarcto: Metodo que no tiene logica definida ( sin implementacion )
+    public abstract void llamar(String numero);
 
-    public void llamar(String numero){
-        System.out.println("lalmando al"+numero+"....");
 
-    }
-    public void llamar(String numero, String compañia){
-        System.out.println("lalmando al"+numero+"....");
 
-    }
-    public void llamar(String numero, String compañia, int saldo){
-        System.out.println("lalmando al"+numero+"....");
 
-    }
+//    public void llamar(String numero, String compañia){
+//        System.out.println("lalmando al"+numero+"....");
+//
+//    }
+//    public void llamar(String numero, String compañia, int saldo){
+//        System.out.println("lalmando al"+numero+"....");
+//
+//    }
     public void mandarMensaje(String numero, String mensaje){
         System.out.println("Enviando :"+ mensaje+"al numero:"+numero);
 

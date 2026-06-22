@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Smartphone extends celular{
+public class Smartphone extends celular implements IFuncionesInteligentes{
 
 
     //pantalla tactil
@@ -113,5 +114,84 @@ public class Smartphone extends celular{
                 ", mAh='" + mAh + '\'' +
                 ", materiales='" + materiales + '\'' +
                 '}';
+    }
+
+//SOBREESCRITURA ; Redefinir la logica (los pasos) de un metodo
+    // de tal forma que logras el mismo resultado pero con procedimientos diferentes
+    // Actua en el interior del metodo
+
+    //Metodo de la forma 2 heredado y sobrescrito
+
+
+
+
+         @Override // <--- Indica que este metodo en esta clase esta siendo sobrescrito
+    public  void llamar(String numero){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Seleccione como quiere hacer la llamada");
+        System.out.println("1 - Red celular ");
+        System.out.println("2 - Whats");
+        System.out.println("3 - Telegram");
+        System.out.println("4 - messenger");
+        int selec = sc.nextInt();
+
+        switch (selec){
+            case 1:
+                System.out.println("Llamar al numero por re celular : "+numero+" por red celular");
+                break;
+            case 2:
+                System.out.println("Llamar al numero por re celular : "+numero+" por whats");
+                break;
+            case 3:
+                System.out.println("Llamar al numero por re celular : "+numero+" por Telegram");
+                break;
+
+            case 4:
+                System.out.println("Llamar al numero por re celular : "+numero+" por messenger");
+                break;
+
+            default:
+                System.out.println("Opcion invalida");
+
+        }
+
+
+    }
+
+
+    @Override
+    public void tomarFoto() {
+
+    }
+
+    @Override
+    public void navegarPorInternet() {
+
+    }
+
+    @Override
+    public void reproducirMusica() {
+
+    }
+
+    @Override
+    public void reproducirVideos() {
+
+    }
+
+    @Override
+    public void abrieAplicaciones() {
+
+    }
+
+    @Override
+    public void leerCorreos() {
+
+    }
+
+    @Override
+    public void leerDocumentos() {
+
     }
 }

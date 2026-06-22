@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-public class celular {
+
+//Clase abstracta : Clase cualquiera que contiene almenos 1 metodo abstracto
+public  abstract class celular {
     String marca;
     String modelo;
     int precio;
@@ -106,9 +108,7 @@ public class celular {
     }
 
     //Sobrecarga de argumentos
-    public void llamar (String nombre, int saldo){
-
-    }
+    public abstract void llamar (String numero);
 
     public void mandarMensaje (String numero, String mensaje){
         System.out.println("Enviando : "+mensaje+"al numero"+numero);

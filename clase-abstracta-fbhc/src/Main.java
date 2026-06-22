@@ -1,8 +1,14 @@
 public class Main {
     public static void main(String[] args) {
         // Objeto de una clase comun y corriente
+        // Despues de istanciar la clase a una abstracta ya no es posible istancuarun objeto en esta
+        //un objeto de esta clase
 
-        celular c1 = new celular("Nokia", "xz Premium,", 543, "Alta", "2500", "Cristal");
+        //  Para que sirve una clase abstracta si no se pueden hacer objetos de ella
+        // sirve para heredar a otros
+
+        celular c1 = new celular("Nokia", "xz Premium,"
+                , 543, "Alta", "2500", "Cristal");
 
 
         // Invocar los metodos propis de esta clase
@@ -43,6 +49,14 @@ Pantalla display2 = new Pantalla(30,"30x240","tft","",2.8,100);
 
         System.out.println(c1);
         System.out.println(sn);
+        System.out.println(sn2);
+
+        sn.llamar("232342");
+        sn2.llamar("2342342");
+
+        sn.mandarMensaje("3234234","texto");// Metodo original de la clase padre
+        sn2.mandarMensaje("3423423","texto");//Metodo heredado y sobreescrito desde la clase hija
+
 
     }
 }

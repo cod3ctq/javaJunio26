@@ -27,23 +27,49 @@ public class Main {
 
         //Objeto de clase hija
         Basico cb = new Basico();
+        Practicaja pc = new Practicaja();
+        pc.setUbicacion("Boulevard 24 Sur #9722");
         cb.setUbicacion("Avenida Guadalupe Blass #358");
-        cb.imprimirCuentas();
-        cb.consultarSaldo("5578123412340004", "4567");
+        //7cb.imprimirCuentas();
+        //cb.consultarSaldo("002180000000000006", "6789");
+        //pc.imprimirCuentas();
+        //Ticket dp1 = pc.depositar("002180000000000001",37000);
+        //pc.consultarSaldo("5578123412340001", "1234");
 
+        // momento 2
 
-        List<Object> tk1 = cb.retirar("5578123412340004", "4567", 20000);
+//        try {
+//            List<Object> tk1 = cb.retirar("002180000000000006", "6789", 116000);
+//            //aqui deberia invocarse al metodo de depositar, o al menos dentro de otro bloque try&catch
+//            System.out.println(tk1.get(0));
+//            //Un catch puede manejar multiples excepciones (indicandolas individualmente )
+//        }catch(Exception ex){
+//            ex.printStackTrace(); //traza completa
+//            System.out.println(ex.getMessage()); //imprime unicamente el mensaje
+//
+//        }
+
+        //pendiente probar depositar con try&catch
+        //pc.imprimirCacheCacheServicios();
+
+//        try{
+//            Ticket dp1 = pc.depositar("002180000000000005",10000);
+//            System.out.println(dp1);
+//
+//        }catch(Exception ex){
+//            System.out.println(ex.getMessage());
+//        }
+
+        //DAO :
+
         //List<Object> tk2 = cb.retirar("5578123412340004", "4567", 10000);
         //List<Object> tk3 = cb.retirar("5578123412340004", "4567", 10000);
-
         //Imprime los ticket individuales (3)
-        System.out.println(tk1.get(0));
+
         //System.out.println(tk2.get(0));
         //System.out.println(tk3.get(0));
-
-        System.out.println(tk1.get(1));
-        cb.consultarSaldo("5578123412340004", "4567");
-
+        //System.out.println(tk1.get(1));
+        //cb.consultarSaldo("5578123412340004", "4567");
 
     }
 }

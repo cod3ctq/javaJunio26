@@ -1,75 +1,125 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import dto.CuentaDTO;
+import models.Atm;
+import models.Ticket;
+import service.impl.Basico;
+import service.impl.Practicaja;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-//       ClasePrueba cprueba = new ClasePrueba();
-//       //Lectura - SELECT
-////       List<Movimiento> movs = cprueba.leerMovs();
-////        //Imprime la lista
-////        for(Movimiento ob:movs){
-////            System.out.println(ob);
-////        }
-//        //Escritura - INSERT
-//        //cprueba.guardarMov(0,25, "RETIRO", LocalDate.now(),5000.00);
-//
-//        //Actualizacion - UPDATE
-//        //cprueba.actualizarMov(261,25, "DEPOSITO", LocalDate.now(),8000.00);
-//
-//        //Eliminacion - DELETE
-//        cprueba.eliminarMovs(261);
-
-        //Objeto de clase hija
         Basico cb = new Basico();
         Practicaja pc = new Practicaja();
         pc.setUbicacion("Boulevard 24 Sur #9722");
         cb.setUbicacion("Avenida Guadalupe Blass #358");
-        //7cb.imprimirCuentas();
-        //cb.consultarSaldo("002180000000000006", "6789");
-        //pc.imprimirCuentas();
-        //Ticket dp1 = pc.depositar("002180000000000001",37000);
-        //pc.consultarSaldo("5578123412340001", "1234");
+        int flujo = 0, continuar = 0;
+        int seleccion = 0;
+        double monto = 0.0;
+        String convenio, referencia, dato, nip;
+        CuentaDTO cuentaActual = null;
+        Ticket ticket = null;
+        Scanner scan = new Scanner(System.in);
+        try {
+            imprimeLogo();
+            Atm.imprimirCuentas();
+            Atm.generarRetirosSinTarjeta();
+            Atm.imprimirRetirosSinTarjeta();
+            System.out.println("[#####  CAJERO BBVA    #####]");
+            System.out.println("1: IDENTIFICARSE");
+            System.out.println("2: RETIRO SIN TARJETA");
+            System.out.print("?: ");
+            flujo = scan.nextInt();
+            scan.nextLine();
+            switch (flujo) {
+                case 1:
+                    System.out.println("INGRESA TU TARJETA");
+                    dato = scan.nextLine();
+                    System.out.println("INGRESA TU NIP");
+                    nip = scan.nextLine();
+                    cuentaActual = Atm.buscarCuenta(dato, nip);
+                    while (continuar < 2) {
+                        System.out.println("1: - CONSULTAR SALDO");
+                        System.out.println("2: - RETIRAR");
+                        System.out.println("3: - DEPOSITAR");
+                        System.out.println("4: - PAGO DE SERVICIOS");
+                        System.out.println("?: ");
+                        seleccion = scan.nextInt();
+                        switch (seleccion) {
+                            case 1:
+                                cb.consultarSaldo(cuentaActual);
+                                break;
+                            case 2:
+                                System.out.println("INGRESA EL MONTO A RETIRAR");
+                                monto = scan.nextDouble();
+                                ticket = (Ticket) cb.retirar(cuentaActual, monto).get(0);
+                                System.out.println(ticket);
+                                break;
+                            case 3:
+                                System.out.println("INGRESA EL MONTO A DEPOSITAR");
+                                monto = scan.nextDouble();
+                                ticket = pc.depositar(cuentaActual, monto);
+                                System.out.println(ticket);
+                                break;
+                            case 4:
+                                scan.nextLine();
+                                System.out.println("INGRESA EL CONVENIO");
+                                convenio = scan.nextLine();
+                                System.out.println("INGRESA LA REFERENCIA");
+                                referencia = scan.nextLine();
+                                ticket = pc.pagarServicio(cuentaActual, convenio, referencia);
+                                System.out.println(ticket);
+                                break;
+                        }
+                        System.out.println("DESEA HACER OTRA OPERACION ?");
+                        System.out.println("1 :SI");
+                        System.out.println("2 :NO");
+                        System.out.print("?: ");
+                        continuar = scan.nextInt();
+                    }
+                    break;
+                case 2:
+                    do {
+                        ticket = (Ticket) pc.cobrarRetiroSinTarjeta().get(0);
+                        System.out.println(ticket);
+                        System.out.println("DESEA HACER OTRA OPERACION ?");
+                        System.out.println("1 :SI");
+                        System.out.println("2 :NO");
+                        System.out.print("?: ");
+                        continuar = scan.nextInt();
+                    } while (continuar<2);
+                    break;
+            }
 
-        // momento 2
+        } catch (Exception ex) {
+            ex.printStackTrace();
 
-//        try {
-//            List<Object> tk1 = cb.retirar("002180000000000006", "6789", 116000);
-//            //aqui deberia invocarse al metodo de depositar, o al menos dentro de otro bloque try&catch
-//            System.out.println(tk1.get(0));
-//            //Un catch puede manejar multiples excepciones (indicandolas individualmente )
-//        }catch(Exception ex){
-//            ex.printStackTrace(); //traza completa
-//            System.out.println(ex.getMessage()); //imprime unicamente el mensaje
-//
-//        }
+        }
 
-        //pendiente probar depositar con try&catch
-        //pc.imprimirCacheCacheServicios();
+    }
 
-//        try{
-//            Ticket dp1 = pc.depositar("002180000000000005",10000);
-//            System.out.println(dp1);
-//
-//        }catch(Exception ex){
-//            System.out.println(ex.getMessage());
-//        }
-
-        //DAO :
-
-        //List<Object> tk2 = cb.retirar("5578123412340004", "4567", 10000);
-        //List<Object> tk3 = cb.retirar("5578123412340004", "4567", 10000);
-        //Imprime los ticket individuales (3)
-
-        //System.out.println(tk2.get(0));
-        //System.out.println(tk3.get(0));
-        //System.out.println(tk1.get(1));
-        //cb.consultarSaldo("5578123412340004", "4567");
-
+    static void imprimeLogo() throws Exception {
+        String rutaImagen = "C:\\Users\\César\\Desktop\\logobbva.PNG";
+        BufferedImage imagen = ImageIO.read(new File(rutaImagen));
+        int anchoFinal = 60;
+        int altoFinal = (imagen.getHeight() * 30) / imagen.getWidth();
+        String caracteres = "@%#*+=-:. ";
+        for (int y = 0; y < altoFinal; y++) {
+            StringBuilder linea = new StringBuilder();
+            for (int x = 0; x < anchoFinal; x++) {
+                int pixelX = x * imagen.getWidth() / anchoFinal;
+                int pixelY = y * imagen.getHeight() / altoFinal;
+                int rgb = imagen.getRGB(pixelX, pixelY);
+                int rojo = (rgb >> 16) & 0xff;
+                int verde = (rgb >> 8) & 0xff;
+                int azul = rgb & 0xff;
+                int gris = (rojo + verde + azul) / 3;
+                int indice = gris * (caracteres.length() - 1) / 255;
+                linea.append(caracteres.charAt(indice));
+            }
+            System.out.println(linea);
+        }
     }
 }

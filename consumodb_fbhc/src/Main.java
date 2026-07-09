@@ -1,10 +1,13 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import dto.CuentaDTO;
+import models.Atm;
+import models.Tiket;
+import service.impl.Basico;
+import service.impl.PractiCaja;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Scanner;
 
 public class Main {
 
@@ -12,62 +15,103 @@ public class Main {
     public static void main(String[] args) {
 
 
-        ClasePrueba cprueba = new ClasePrueba();
-
-
-//        // Lectura - SELECT
-//        List<Movimientos> movs = cprueba.leerMovs();
-
-
-
-        //Imprimir la lista
-
-//        for(Movimientos ob: movs){
-//            System.out.println(ob);
-//        }
-
-
-        //Escritura -insert
-
-
-//        cprueba.guardarMov(0,25,"RETIRO", LocalDate.now(),5000.00);
-//
-        //Actualizacio
-//        cprueba.actualizarMov(261,25,"DEPOSITO",LocalDate.now(),8000.00);
-
-
-        // Eliminacion - delete
-
-//        cprueba.eliminarMov(261);
-
-
-
-// Objetos de clases hijas
 
 
         Basico cb = new Basico();
+        PractiCaja pc = new PractiCaja();
+        pc.setUbicacion("Boulevard 24 Sur #9722");
+        cb.setUbicacion("Avenida Guadalupe Blass #358");
+        int flujo = 0, continuar=0;
+        int seleccion = 0;
+        double monto = 0.0;
+        String convenio, referencia, dato, nip;
+        CuentaDTO cuentaActual=null;
+        Tiket ticket =  null;
+        Scanner scan = new Scanner(System.in);
+        try{
+            imprimeLogo();
+            Atm.imprimirCuentas();
+            Atm.generarRetirosSinTarjrta();
+            Atm.imprimirRetiroSinTarjeta();
 
-        cb.setUbicacion("Avenida Guadalupe #308");
-//        List<Cuenta> cuentas = cb.obtenerCuentas(); //Invoca al metodo que que cargue la lista de
-//        for (Cuenta c: cuentas){
-//            System.out.println(c);
-//        }
+            System.out.println("[#####  CAJERO BBVA    #####]");
+            System.out.println("1: IDENTIFICARSE");
+            System.out.println("2: RETIRO SIN TARJETA");
+            System.out.print("?: ");
+            flujo = scan.nextInt();
+            scan.nextLine();
 
-        cb.imprimirCuentas();
-        cb.consultarSaldo("5578123412340004","4567");
+            switch(flujo){
+                case 1:
+                    System.out.println("INGRESA TU TARJETA");
+                    dato = scan.nextLine();
+                    System.out.println("INGRESA TU NIP");
+                    nip = scan.nextLine();
 
-        List<Object> tk1 = cb.retirar("5578123412340004","4567",10000);
-//        List<Object> tk2 = cb.retirar("5578123412340004","4567",10000);
-//        List<Object> tk3 = cb.retirar("5578123412340004","4567",10000);
+                    cuentaActual = Atm.buscarCuenta(dato, nip);
 
-        System.out.println(tk1.get(0));
-//        System.out.println(tk2.get(0));
-//        System.out.println(tk3.get(0));
-        System.out.println(tk1.get(1));
-        cb.consultarSaldo("5578123412340004","4567");
+                    while(continuar<2){
+                        System.out.println("1: - CONSULTAR SALDO");
+                        System.out.println("2: - RETIRAR");
+                        System.out.println("3: - DEPOSITAR");
+                        System.out.println("4: - PAGO DE SERVICIOS");
+                        System.out.println("?: ");
+                        seleccion = scan.nextInt();
+                        switch (seleccion){
+                            case 1:
+                                cb.consultarSaldo(cuentaActual);
+                                break;
+                            case 2:
+                                System.out.println("INGRESA EL MONTO A RETIRAR");
+                                monto = scan.nextDouble();
+                                ticket = (Tiket) cb.retirar(cuentaActual, monto).get(0);
+                                System.out.println(ticket);
+                                break;
+                            case 3:
+                                System.out.println("INGRESA EL MONTO A DEPOSITAR");
+                                monto = scan.nextDouble();
+                                ticket = pc.depositar(cuentaActual, monto);
+                                System.out.println(ticket);
+                                break;
+                            case 4:
+                                scan.nextLine();
+                                System.out.println("INGRESA EL CONVENIO");
+                                convenio = scan.nextLine();
+                                System.out.println("INGRESA LA REFERENCIA");
+                                referencia = scan.nextLine();
+                                ticket = pc.pagarservisio(cuentaActual, convenio, referencia);
+                                System.out.println(ticket);
+                                break;
 
+                        }
+                        System.out.println("DESEA HACER OTRA OPERACION ?");
+                        System.out.println("1 :SI");
+                        System.out.println("2 :NO");
+                        System.out.print("?: ");
+                        continuar = scan.nextInt();
+                    }
+                    break;
 
+                case 2:
 
+                    do {
+                        ticket = (Tiket) pc.cobrarRetiroSinTarjeta().get(0);
+                        System.out.println(ticket);
+                        System.out.println("DESEA HACER OTRA OPERACION ?");
+                        System.out.println("1 :SI");
+                        System.out.println("2 :NO");
+                        System.out.print("?: ");
+                        continuar= scan.nextInt();
+
+                    }while (continuar<2);
+
+                    break;
+            }
+
+        }catch(Exception ex){
+            ex.printStackTrace();
+
+        }
 
 
 
@@ -75,8 +119,33 @@ public class Main {
 
     }
 
+    static void imprimeLogo() throws Exception {
+        String rutaImagen = "C:\\Users\\forti\\Desktop\\5071371133013134432.jpg";
+        BufferedImage imagen = ImageIO.read(new File(rutaImagen));
+        int anchoFinal = 60;
+        int altoFinal = (imagen.getHeight() * 30) / imagen.getWidth();
+        String caracteres = "@%#*+=-:. ";
+        for (int y = 0; y < altoFinal; y++) {
+            StringBuilder linea = new StringBuilder();
+            for (int x = 0; x < anchoFinal; x++) {
+                int pixelX = x * imagen.getWidth() / anchoFinal;
+                int pixelY = y * imagen.getHeight() / altoFinal;
+                int rgb = imagen.getRGB(pixelX, pixelY);
+                int rojo = (rgb >> 16) & 0xff;
+                int verde = (rgb >> 8) & 0xff;
+                int azul = rgb & 0xff;
+                int gris = (rojo + verde + azul) / 3;
+                int indice = gris * (caracteres.length() - 1) / 255;
+                linea.append(caracteres.charAt(indice));
+            }
+            System.out.println(linea);
+        }
+    }
+
+    }
 
 
 
 
-}
+
+

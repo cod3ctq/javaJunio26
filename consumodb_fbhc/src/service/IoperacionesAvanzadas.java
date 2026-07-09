@@ -1,5 +1,4 @@
-import dto.CuentaDTO;
-import models.Tiket;
+package service;
 
 public interface IoperacionesAvanzadas {
 

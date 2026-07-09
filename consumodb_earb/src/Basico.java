@@ -13,9 +13,9 @@ public class Basico extends  Atm{
 
         //accede aa lista heredada a traves del getter
         //la cual ya esta cargada en este punto
-        for (cuentaDTO c: this.getDbcuentas()){
-            System.out.println(c);
-        }
+//        for (cuentaDTO c: this.getDbcuentas()){
+//            System.out.println(c);
+//        }
     }
 
 

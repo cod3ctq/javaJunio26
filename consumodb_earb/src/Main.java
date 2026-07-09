@@ -35,8 +35,8 @@ Basico cb = new Basico();
 //    for(Cuenta C : cuentas){
 //        System.out.println(C);
 //    }
-cb.imprimirCuentas();
-cb.consultarSaldo("557812341234004","4567");
+//cb.imprimirCuentas();
+//cb.consultarSaldo("557812341234004","4567");
 
 
 List <Object> resultados = cb.retirar("557812341234004","4567",10000);

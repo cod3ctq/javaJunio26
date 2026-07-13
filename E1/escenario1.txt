@@ -1,0 +1,25 @@
+En esta carpeta, se tiene el escenario 1:
+1 tabla -> 1 microservicio
+
+Cada microservicio individual contiene:
+1 entity
+2 repository
+3 dtos (request y response)
+4 service
+5 logic
+6 controller
+----------------
+errors
+advice
+exception
+config
+mapper
+constants
+
+
+Ademas, estos servicios estan cada uno en un puerto diferente
+
+No todos los servicios requien las todas la operaciones CRUD
+
+En prestamos por ejemplo no se requiere actualizar y fuee necesario agregar un metodo para el borrado logico 
+

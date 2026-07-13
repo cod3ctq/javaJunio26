@@ -1,0 +1,17 @@
+1 tabla, deriva en un microservicio
+
+cada servicio individual contiene 
+entity
+repository
+datos(request and respone)
+service
+logic controller
+----------------------
+errors
+advice
+exception
+config
+mapper
+
+ademas, estos servicios estan cada un de un puerto diferente 
+

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$APPLICATION_HOME_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$APPLICATION_HOME_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cliente/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/cliente/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/ms-abonos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/ms-prestamos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/ms-servicios/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservices/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-abonos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-prestamos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-servicios/src/main/java" charset="UTF-8" />

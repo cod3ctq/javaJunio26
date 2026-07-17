@@ -1,14 +1,14 @@
-En esta carpeta, se tiene el escenario 1:
+En esta carpeta se tiene el escenario 1 :
 1 tabla -> 1 microservicio
 
-Cada microservicio individual contiene:
+cada servicio individual contiene
 1 entity
 2 repository
-3 dtos (request y response)
+3 dto (request y response)
 4 service
 5 logic
 6 controller
-----------------
+---------------
 errors
 advice
 exception
@@ -16,6 +16,6 @@ config
 mapper
 constants
 
-Ademas, estos servicios estan cada uno en un puerto diferente
+Además, estos servicios están cada uno en un puerto diferente
 
-No todos los servicios requieren todas las operaciones CRUD, en prestamos por ejemplo no se requieren actualizar, fue necesario agregar un método para el borrado lógico
+No todos los servicios requieren todas las operaciones CRUD en prestamos, por ejemplo, no se requieren actualizar y fue necesario agregar un método para el borrado lógico

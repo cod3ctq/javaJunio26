@@ -7,16 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cliente" />
-        <module name="abonos" />
+        <module name="Movimientos" />
         <module name="ms-servicios" />
+        <module name="discovery-server" />
+        <module name="api-gateway" />
+        <module name="abonos" />
         <module name="ms-prestamos" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Movimientos" options="-parameters" />
       <module name="abonos" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="cliente" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
+      <module name="microservices" options="" />
       <module name="ms-prestamos" options="-parameters" />
       <module name="ms-servicios" options="-parameters" />
     </option>

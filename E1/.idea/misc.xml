@@ -8,6 +8,10 @@
         <option value="$PROJECT_DIR$/abonos/pom.xml" />
         <option value="$PROJECT_DIR$/cliente/pom.xml" />
         <option value="$PROJECT_DIR$/ms-servicios/pom.xml" />
+        <option value="$PROJECT_DIR$/microservices/pom.xml" />
+        <option value="$PROJECT_DIR$/microservices/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/microservices/discovery-server/pom.xml" />
+        <option value="$PROJECT_DIR$/microservices/Movimientos/pom.xml" />
       </list>
     </option>
   </component>
